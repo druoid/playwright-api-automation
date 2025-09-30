@@ -33,12 +33,10 @@ test('Update booking by id', async ({ baseURL }) => {
   
   const updateResponse = await makePatchRequest(bookingByIdUrl, payload, authResponseBody.token)
   expect(updateResponse.status()).toEqual(200);
-  const updateResponseBody = await updateResponse.json();
 
   // Get booking by ID again 
   const getResponsePostUpdate = await makeGetRequest(bookingByIdUrl);
   expect(getResponsePostUpdate.status()).toEqual(200);
-  const getResponsePostUpdateBody = await getResponsePostUpdate.json();
 
   // Delete booking by ID
   const deleteResponse = await makeDeleteRequest(bookingByIdUrl, authResponseBody.token)
