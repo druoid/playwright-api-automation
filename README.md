@@ -1,6 +1,6 @@
 ## Purpose
 
-This rest-assured-demo example contains an API automation framework using Playwright and Typescript to test the Restful
+This example contains an API automation framework using Playwright and Typescript to test the Restful
 Booker API at https://restful-booker.herokuapp.com
 
 It includes both positive and negative tests.
