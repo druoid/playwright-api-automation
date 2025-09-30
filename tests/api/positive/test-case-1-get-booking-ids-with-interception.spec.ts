@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('should intercept and return custom response for /booking endpoint - get booking ids', async ({ page, baseURL }) => {
+test('Should intercept and return custom response for /booking endpoint - get booking ids', async ({ page, baseURL }) => {
   const endpoint = '/booking';
   const url = `${baseURL}${endpoint}`; 
 

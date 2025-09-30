@@ -12,7 +12,6 @@ test('Update booking by id', async ({ baseURL }) => {
   expect(postResponse.status()).toEqual(200);
 
   const postResponseBody = await postResponse.json();
-  console.log(postResponseBody);
   const bookingId = postResponseBody.bookingid;
   
   const bookingByIdUrl = `${baseURL}${endpoint}/${bookingId}`;
@@ -25,7 +24,6 @@ test('Update booking by id', async ({ baseURL }) => {
   const authResponse = getAuth();
   expect((await authResponse).status()).toEqual(200);
   const authResponseBody = await (await authResponse).json();
-  console.log(authResponseBody);
 
   // Partial update of booking by ID
   const payload = {
@@ -36,13 +34,11 @@ test('Update booking by id', async ({ baseURL }) => {
   const updateResponse = await makePatchRequest(bookingByIdUrl, payload, authResponseBody.token)
   expect(updateResponse.status()).toEqual(200);
   const updateResponseBody = await updateResponse.json();
-  console.log(updateResponseBody);
 
   // Get booking by ID again 
   const getResponsePostUpdate = await makeGetRequest(bookingByIdUrl);
   expect(getResponsePostUpdate.status()).toEqual(200);
   const getResponsePostUpdateBody = await getResponsePostUpdate.json();
-  console.log(getResponsePostUpdateBody);
 
   // Delete booking by ID
   const deleteResponse = await makeDeleteRequest(bookingByIdUrl, authResponseBody.token)

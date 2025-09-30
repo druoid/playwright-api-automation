@@ -13,7 +13,6 @@ test('Get booking by id', async ({ baseURL }) => {
   expect(postResponse.status()).toEqual(200);
 
   const postResponseBody = await postResponse.json();
-  console.log(postResponseBody);
   const bookingId = postResponseBody.bookingid;
   
   const bookingByIdUrl = `${baseURL}${endpoint}/${bookingId}`;
@@ -26,7 +25,6 @@ test('Get booking by id', async ({ baseURL }) => {
   const authResponse = getAuth();
   expect((await authResponse).status()).toEqual(200);
   const authResponseBody = await (await authResponse).json();
-  console.log(authResponseBody);
 
   // Delete booking by ID
   const deleteResponse = await makeDeleteRequest(bookingByIdUrl, authResponseBody.token)

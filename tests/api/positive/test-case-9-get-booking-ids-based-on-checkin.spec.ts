@@ -11,26 +11,19 @@ test('Get booking ids based on check in date', async ({ baseURL }) => {
   expect(response.status()).toEqual(200);
 
   const responseBody = await response.json();
-  console.log(responseBody);
   const checkin: string = responseBody.booking.bookingdates.checkin;
-
-  console.log(checkin);
   
-  const bookingByIdUrl = `${baseURL}${endpoint}?checkin=${checkin}`;
-  console.log(bookingByIdUrl);
+  const bookingByCheckInDateUrl = `${baseURL}${endpoint}?checkin=${checkin}`;
 
   // Get booking by ID
-  const getResponse = await makeGetRequest(bookingByIdUrl);
+  const getResponse = await makeGetRequest(bookingByCheckInDateUrl);
   expect(getResponse.status()).toEqual(200);
   
   const getResponseBody = await getResponse.json();
-  console.log(getResponseBody);
 
   expect(Array.isArray(getResponseBody)).toBe(true);
 
   const count = Object.keys(getResponseBody).length;
-
-  console.log(count);
 
   expect(count).toBeGreaterThanOrEqual(1);
 });
